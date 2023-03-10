@@ -10,7 +10,6 @@ public class GameMap {
     private static int width;
     private static int size = 0;
 
-
     public GameMap(int length, int width) {
         this.length = length;
         this.width = width;
@@ -25,7 +24,6 @@ public class GameMap {
             }
         }
     }
-
     public Map<Type, ArrayList<Organism>> addResidents(HashSet<Organism> settlers) {
         Map<Type, ArrayList<Organism>> residents = new HashMap<>();
         for (Organism organism : Organism.organisms) {
@@ -35,7 +33,6 @@ public class GameMap {
         }
         return residents;
     }
-
     public ArrayList<Cell> createListOfCells() {
         listOfCells = new ArrayList();
         for (Cell[] i : cells) {
@@ -72,5 +69,4 @@ public class GameMap {
         return "Карта острова: " +
                 Arrays.deepToString(cells);
     }
-
 }

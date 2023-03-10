@@ -1,19 +1,24 @@
 package ru.javarush.island.organismes;
 
+import java.lang.reflect.Type;
+import java.util.Map;
+
 public class OrganismParametres {
-    private int weight;
+    private double weight;
     private int maxAmount;
     private int maxSpeed;
-    private double food;
+    private double maxWeightOfFood;
+    private int WEIGTLOSS = 1;
 
-    public OrganismParametres(int weight, int maxAmount, int maxSpeed, double food) {
+
+    public OrganismParametres(double weight, int maxAmount, int maxSpeed, double maxWeightOfFood) {
         this.weight = weight;
         this.maxAmount = maxAmount;
         this.maxSpeed = maxSpeed;
-        this.food = food;
+        this.maxWeightOfFood = maxWeightOfFood;
     }
 
-    public OrganismParametres(int weight, int maxAmount) {
+    public OrganismParametres(double weight, int maxAmount) {
         this.weight = weight;
         this.maxAmount = maxAmount;
     }
@@ -22,16 +27,21 @@ public class OrganismParametres {
         return maxAmount;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
+    }
+
+    public void setWeight() {
+        this.weight -= WEIGTLOSS;
+        System.out.println(this + "похудел");
     }
 
     public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public double getFood() {
-        return food;
+    public double getMaxWeightOfFood() {
+        return maxWeightOfFood;
     }
 
 }

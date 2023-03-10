@@ -1,14 +1,34 @@
 package ru.javarush.island.organismes;
 
-public class Wolf extends Organism implements Predator, Movable, Reproducable {
-    private OrganismParametres organismParametres = new OrganismParametres(50,5,3,8);
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Wolf() {
-        super.organismParametres = organismParametres;
+public class Wolf extends Organism {
+    private OrganismParametres organismParametres = new OrganismParametres(50,30,3,8);
+    private Map<Type, Integer> food = new HashMap<>();
+    {
+        food.put(Horse.class, 10);
+        food.put(Deer.class, 15);
+        food.put(Rabbit.class, 60);
+        food.put(Mouse.class, 80);
+        food.put(Goat.class, 60);
+        food.put(Sheep.class, 70);
+        food.put(Boar.class, 15);
+        food.put(Buffalo.class, 10);
+        food.put(Duck.class, 40);
     }
 
+    public Wolf(){
+        super.organismParametres = organismParametres;
+        this.food = food;
+    }
+    @Override
+    public Map<Type, Integer> getFood() {
+        return food;
+    }
     @Override
     public String toString() {
-        return "Волк";
+        return "\uD83D\uDC3A";
     }
 }

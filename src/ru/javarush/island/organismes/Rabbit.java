@@ -1,15 +1,23 @@
 package ru.javarush.island.organismes;
 
-public class Rabbit extends Organism implements Herbivores, Movable, Reproducable {
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
-    private OrganismParametres organismParametres = new OrganismParametres(2,5,2,0.45);
+public class Rabbit extends Organism {
+
+    private OrganismParametres organismParametres = new OrganismParametres(2,150,2,0.45);
+
+    private Map<Type, Integer> food = new HashMap<>();
+    {food.put(Plant.class, 100);}
 
     public Rabbit() {
         super.organismParametres = organismParametres;
+        this.food = food;
     }
 
     @Override
     public String toString() {
-        return "Кролик";
+        return "\uD83D\uDC07";
     }
 }
